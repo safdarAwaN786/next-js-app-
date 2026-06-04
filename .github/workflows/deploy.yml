@@ -1,5 +1,5 @@
 
-name: Deploy
+name: Integration
 
 on:
   push:
@@ -9,10 +9,10 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
-
+    
 
     steps:
     - uses: actions/checkout@v4
-    - run: docker build . -t harishneel/next-js-app
-    - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin 
-    - run: docker push harishneel/next-js-app:latest
+    - run: docker build . -t msafdardev/next-js-app 
+    - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+    - run: docker push msafdardev/next-js-app:latest
